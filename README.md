@@ -1,6 +1,14 @@
 # patchwork-book-library
 
-This project uses [Gradle](https://gradle.org/).
+### Instructions:
+This project has been structured as a library - there is no main() entrypoint. Expectations have been defined prior to
+the code under test by following TDD. Tests were based off the provided "story" list (they're available in the form of
+comments in [LibraryTests.kt](lib/src/test/kotlin/com/caiodorn/book/library/LibraryTests.kt), *just for reference*).
+
+Disclaimer: I am not very well-versed in Kotlin, but I tried my best to at least come up with something that is easy to
+follow, and hopefully clean. As requested I came up with something very basic that satisfies the aforementioned stories. 
+The only thing I couldn't get away with was a build tool, that's the only added "clutter".
+
 To build and run the application, use the *Gradle* tool window by clicking the Gradle icon in the right-hand toolbar,
 or run it directly from the terminal:
 
@@ -12,12 +20,3 @@ or run it directly from the terminal:
 Note the usage of the Gradle Wrapper (`./gradlew`).
 This is the suggested way to use Gradle in production projects.
 
-[Learn more about the Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
-
-[Learn more about Gradle tasks](https://docs.gradle.org/current/userguide/command_line_interface.html#common_tasks).
-
-This project follows the suggested multi-module setup and consists of the `app` and `utils` subprojects.
-The shared build logic was extracted to a convention plugin located in `buildSrc`.
-
-This project uses a version catalog (see `gradle/libs.versions.toml`) to declare and version dependencies
-and both a build cache and a configuration cache (see `gradle.properties`).

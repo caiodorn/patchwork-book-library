@@ -36,10 +36,16 @@ class LibraryTests : FeatureSpec({
                 Book("God Emperor of Dune", "Frank Herbert", "978-0575075061")
             )
         }
+        scenario("by author, none found") {
+            library?.findBooksByAuthor("Caio Antunes").shouldBeEmpty()
+        }
         scenario("by title") {
             library?.findBooksByTitle("Children of Dune") shouldContainOnly listOf(
                 Book("Children of Dune", "Frank Herbert", "978-1473233782")
             )
+        }
+        scenario("by title, none found") {
+            library?.findBooksByTitle("Design Patterns").shouldBeEmpty()
         }
         scenario("by ISBN") {
             library?.findBooksByIsbn("978-1492056119") shouldContainOnly listOf(
