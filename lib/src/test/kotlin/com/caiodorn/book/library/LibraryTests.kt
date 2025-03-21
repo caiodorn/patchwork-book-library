@@ -75,19 +75,15 @@ class LibraryTests : FeatureSpec({
 
                 //when
                 library?.borrowBook(book, user)
-            }
+            }.message shouldBe "This book is currently unavailable"
         }
         scenario("throw exception if reference book") {
             shouldThrow<BookUnavailableException> {
                 library?.borrowBook(
-                    Book(
-                        "Java: The Complete Reference, Eleventh Edition",
-                        "Herbert Schildt",
-                        "978-1260440232",
-                        true
-                    ), User("John Snow")
+                    Book("Java: The Complete Reference, Eleventh Edition", "Herbert Schildt", "978-1260440232", true),
+                    User("John Snow")
                 )
-            }
+            }.message shouldBe "Reference books are not available for borrowing"
         }
     }
 
